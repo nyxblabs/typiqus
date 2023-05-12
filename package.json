@@ -1,0 +1,95 @@
+{
+  "name": "typiqus",
+  "version": "0.0.3",
+  "description": "🔤 Empower your type handling with uniqueness and customization. Effortlessly create and manage tailored types for a robust and flexible codebase. 🚀",
+  "author": "Dennis Ollhoff <contact@nyxb.xyz>",
+  "license": "MIT",
+  "hompage": "https://💻nyxb.ws",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyxblabs/typiqus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nyxblabs/typiqus/issues"
+  },
+  "sideEffects": false,
+  "bin": {
+    "typiqus": "./dist/cli.mjs"
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./babel-plugin": {
+      "import": "./dist/babel.mjs",
+      "require": "./dist/babel.cjs",
+      "types": "./dist/babel.d.ts"
+    },
+    "./transform": {
+      "import": "./dist/transform.mjs",
+      "require": "./dist/transform.cjs",
+      "types": "./dist/transform.d.ts"
+    },
+    "./loader": {
+      "types": "./dist/loader.d.ts",
+      "import": "./dist/loader.mjs",
+      "require": "./dist/loader.cjs"
+    }
+  },
+  "scripts": {
+    "prepack": "nyxr build",
+    "build": "unbuild",
+    "dev": "vitest",
+    "lint": "eslint --ext .js,.ts .",
+    "lint:fix": "eslint --fix --ext .js,.ts .",
+    "release": "nyxr test && nyxlx changelogen@latest --release --push && pnpm publish",
+    "test": "nyxr lint && vitest run --coverage",
+    "typiqus": "dynot ./src/cli.ts",
+    "web": "nuxi dev web",
+    "web:build": "nuxi generate web"
+  },
+  "dependencies": {
+    "@babel/core": "^7.21.5",
+    "@babel/standalone": "^7.21.5",
+    "@babel/types": "^7.21.5",
+    "dynot": "^0.1.8",
+    "magicase": "^0.0.2",
+    "mri": "^1.2.0",
+    "nuxt": "^3.4.3",
+    "nuxt-windicss": "^2.6.1",
+    "nyxdefaults": "^0.0.3"
+  },
+  "devDependencies": {
+    "@babel/template": "^7.20.7",
+    "@nyxb/eslint-config": "^0.0.53",
+    "@nyxb/nyxi": "^0.0.28",
+    "@types/babel__standalone": "latest",
+    "@types/babel__traverse": "latest",
+    "@types/marked": "^4.3.0",
+    "@types/node": "^18.16.2",
+    "@types/prismjs": "^1.26.0",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@vitest/coverage-c8": "^0.30.1",
+    "@vue/compiler-sfc": "^3.2.47",
+    "eslint": "^8.40.0",
+    "hljs": "^6.2.3",
+    "json-schema": "^0.4.0",
+    "marked": "^5.0.2",
+    "monaco-editor": "^0.37.1",
+    "prismjs": "^1.29.0",
+    "typescript": "^5.0.4",
+    "unbuild": "^1.2.1",
+    "vitest": "^0.30.1"
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "packageManager": "pnpm@8.5.0",
+  "keywords": []
+}
